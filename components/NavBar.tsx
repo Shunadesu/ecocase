@@ -15,7 +15,7 @@ const NavBar = async () => {
     const { GoArrowRight } = icons
 
     return (
-        <nav className='fixed z-[100] h-14 inset-x-0 border-gray-200 bg-white/76 backdrop-blur-lg transition-all'>
+        <nav className='sticky z-[100] h-14 inset-x-0 border-gray-200 bg-white/76 backdrop-blur-lg transition-all'>
             <MaxWidthWrapper>
                 <div className='flex h-14 items-center justify-between border-b border-zinc-200'>
                     <Link href='/' className="flex z-40 font-semibold">
