@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import icons from "@/Ulities/icons";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
@@ -5,14 +6,18 @@ import Image from "next/image";
 
 import userImage from '../public/users/user-1.png'
 import Phone from "@/components/Phone";
+import { Reviews } from "@/components/Reviews";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Home() {
-  const { FaCheck, FaRegStar, FaStar } = icons
+  const { FaCheck, FaRegStar, FaStar, GoArrowRight } = icons
   return (
     <div className="bg-slate-50">
       <section>
-        <MaxWidthWrapper className="pb-24 pt-10 lg:grid lg:grid-cols-3
-        sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-32 lg:pb-52
+        <MaxWidthWrapper className="pb-24 pt-16 lg:grid lg:grid-cols-3
+        sm:pb-32 lg:gap-x-0 xl:gap-x-8 lg:pt-24 xl:pt-36 lg:pb-52
         ">
           <div className="col-span-2 px-6 lg:px-0 lg:pt-4">
             <div className="relative mx-auto text-center lg:text-left
@@ -106,7 +111,7 @@ export default function Home() {
             <div className="relative md:max-w-xl">
               <img src="/your-image.png"
                 alt=""
-                className="absolute w-40 lg:w-5 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
+                className="absolute w-40 lg:w-50 left-56 -top-20 select-none hidden sm:block lg:hidden xl:block"
               />
 
               <img src="/line.png"
@@ -118,7 +123,6 @@ export default function Home() {
           </div>
         </MaxWidthWrapper>
       </section>
-
 
       {/* Value Proposition */}
       <section className="bg-slate-50 py-24">
@@ -186,6 +190,74 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </MaxWidthWrapper>
+
+
+        {/* Animated */}
+        <div className="pt-16">
+          <Reviews />
+        </div>
+      </section>
+
+      <section>
+        <MaxWidthWrapper className="py-32">
+          <div className="mb-12 md:mb-24 px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl sm:text-center">
+              <h2 className="oder-1 mt-2 tracking-tight text-center text-balance !leading-tight font-bold text-5xl md:text-6xl text-gray-900">
+                Upload your photo and get {''}<span className="relative px-2 bg-green-600 text-white">your own case{''}</span>{''} now
+              </h2>
+            </div>
+          </div>
+
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="relative w-full flex flex-col items-center md:grid grid-cols-2 md:gap-60 gap-40">
+              <img src="/arrow.png" alt="" className="absolute top-[25rem] md:top-1/2 z-10 rotate-90 md:rotate-0 left-none md:left-[45%]" />
+
+              <div className="relative h-80 md:h-80 md:justify-self-end max-w-sm rounded-xl bg-gray-900/5 ring-inset ring-gray-900/10 lg:rounded-2xl">
+                <img src="/horse.jpg"
+                  className="rounded-md object-cover bg-white shadow-2xl ring-1 ring-gray-900/10 h-full w-full"
+                  alt="" />
+              </div>
+
+              <Phone className="w-60" imgSrc="/horse_phone.jpg" />
+            </div>
+          </div>
+
+
+          <ul className="mx-auto mt-12 max-w-prose sm:text-lg space-y-2 w-fit">
+            <li className="w-fit">
+              <FaCheck className="h-5 w-5 text-green-600 inline mr-1.5" />
+              High-quality silicone meterial
+            </li>
+
+            <li className="w-fit">
+              <FaCheck className="h-5 w-5 text-green-600 inline mr-1.5" />
+              Scractch and fingerprint resistant coating
+            </li>
+
+            <li className="w-fit">
+              <FaCheck className="h-5 w-5 text-green-600 inline mr-1.5" />
+              Wireless charging compatible
+            </li>
+
+            <li className="w-fit">
+              <FaCheck className="h-5 w-5 text-green-600 inline mr-1.5" />
+              5 year print warranty
+            </li>
+
+
+            <div className="flex justify-center">
+              <Link
+                className={buttonVariants({
+                  size: 'lg',
+                  className: "mx-auto mt-8 p-4"
+                })}
+                href='/configure/upload'>
+                Create your case now <GoArrowRight className="h-4 w-4 ml-1.5" />
+              </Link>
+            </div>
+          </ul>
+
         </MaxWidthWrapper>
       </section>
     </div>
